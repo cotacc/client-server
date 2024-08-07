@@ -1,7 +1,8 @@
-  const express = require('express');
+ require('dotenv').config();
+const express = require('express');
   const app = express();
-  const port = process.env.PORT || 5000;
-  require('dotenv').config();
+  const port = process.env.PORT || 6000;
+ 
   const mongoose = require('mongoose');
   const Authroute = require('./routes/auth');
   const Memoroute = require('./routes/memo');
@@ -10,7 +11,7 @@
   const cors = require('cors');
   const cookieparser = require('cookie-parser');
   const errorhandler = require('./middleware/error');
-  const path = require('path');
+
 
   mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -35,9 +36,7 @@
   app.use(cookieparser());
   app.use(cors());
 
-  // Serve static files
-  app.use('/typememo', express.static('typememo'));
-
+  
   // ROUTES MIDDLEWARE
   app.use("/api", Authroute);
   app.use('/api', Memoroute);
