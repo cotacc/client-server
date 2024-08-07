@@ -45,7 +45,7 @@ exports.invite = async (req, res, next) => {
       `MIME-Version: 1.0`,
       `Subject: ${utf8Subject}`,
       '',
-      `Hello, I am the admin of this system. Please go to this site: https://collabsiaclient.vercel.app and use this code ${code}. Do not share this code with others.`
+      `Hello, I am the admin of this system. Please go to this site: https://client-6p4c.vercel.app and use this code ${code}. Do not share this code with others.`
     ];
     const message = messageParts.join('\n');
     const encodedMessage = Buffer.from(message).toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
